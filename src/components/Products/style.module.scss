@@ -1,0 +1,15 @@
+.productsWrapper{
+  width: 960px;
+  margin: 0 auto;
+  padding-top: 98px;
+  padding-bottom: 30px;
+  .content{
+    padding: 16px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .paginationBox{
+    display: flex;
+    justify-content: flex-end;
+  }
+}

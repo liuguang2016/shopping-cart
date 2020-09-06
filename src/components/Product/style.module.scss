@@ -1,0 +1,38 @@
+.product {
+  background: white;
+  margin: 16px;
+  width: 200px;
+  border-radius: 2px;
+  cursor: pointer;
+  .productImage {
+    overflow: hidden;
+    border-radius: 2px 2px 0 0;
+    max-height: 200px;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .productName {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 8px;
+  }
+  .productPrice {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 22px;
+    margin-bottom: 16px;
+    &:before {
+      content: "¥ ";
+    }
+  }
+  .productName,
+  .productPrice {
+    color: gray;
+    padding: 0 16px;
+    text-align: center;
+  }
+}
+
