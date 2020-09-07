@@ -1,30 +1,42 @@
-import { LOAD_CART, ADD_PRODUCT, REMOVE_PRODUCT, CHANGE_PRODUCT_QUANTITY } from './actionTypes';
+import { ADD_PRODUCT, REMOVE_PRODUCT, CHANGE_PRODUCT_QUANTITY } from "./actionTypes";
+
+interface ProductItem {
+  image: string;
+  name: string;
+  price: number;
+  id: number;
+  quantity?:number;
+  [propName: string]: any;
+}
 
 const initialState = {
-  products: []
+  products: [],
 };
 
-export default function(state = initialState, action:any) {
+export default function (state = initialState, action: any) {
   switch (action.type) {
-    case LOAD_CART:
-      return {
-        ...state,
-        products: action.payload
-      };
     case ADD_PRODUCT:
       return {
         ...state,
-        productToAdd: Object.assign({}, action.payload)
+        products: [...state.products, action.payload],
       };
     case REMOVE_PRODUCT:
       return {
         ...state,
-        productToRemove: Object.assign({}, action.payload)
+        products: state.products.filter((item:ProductItem) => item.id !== action.payload),
       };
     case CHANGE_PRODUCT_QUANTITY:
       return {
         ...state,
-        productToChange: Object.assign({}, action.payload)
+        products: state.products.map((item:ProductItem)=>{
+          let result;
+          if(item.id === action.payload.id){
+            result = Object.assign(item, action.payload)
+          }else{
+            result = item;
+          }
+          return result;
+        }),
       };
     default:
       return state;

@@ -20,7 +20,7 @@ export const updateCart = (cartProducts:any) => (dispatch:any) => {
     productQuantity,
     installments,
     totalPrice,
-    currencyId: 'USD',
+    currencyId: 'CYN',
     currencyFormat: '¥'
   };
 
